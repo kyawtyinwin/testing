@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validate testing</title>
+</head>
+<body>
+
+	<form id="test" action=""> 
+	  <p>     
+	  	<label for="cname">Name (required, at least 2 characters)</label> 
+	  	    <input id="cname" type="text" name="name">  
+
+		<p> 
+		<label for="cemail">E-Mail (required)</label>   
+		<input id="cemail" type="text" name="email" /> 
+		</p> 
+
+		<p>    
+		<label for="curl">URL (optional)</label>   
+		<input id="curl" type="text" name="url" />  
+		</p> 
+
+		<p>  
+		<label for="ccomment">Your comment (required)</label>   
+		<textarea id="ccomment" name="comment"></textarea> 
+		</p> 
+
+		<p>  
+		<input class="submit" type="submit" value="Submit"/> 
+		</p>
+
+	</form>
+
+			<script src="jquery.min.js"></script>
+			<script src="jquery.validate.js"></script>
+			<script>   
+			$(document).ready(function(){ 
+
+			$("#test").validate({
+			rules: { 
+
+			name: {
+			"required": true,  
+			"minlength": 2   
+			},      
+			email: {   
+			"required": true,
+			"email": true
+			},     
+			comment: {    
+			"required": true  
+			}  
+			}  
+			}); 
+			});
+			</script>
+
+		<style type="text/css">
+
+		label {  
+		display: block; 
+		color: #555;
+		}
+		label.error {  
+		color: #900;  
+		font-style: italic;
+		}
+
+		</style>
+
+
+</body>
+</html>

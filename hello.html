@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery</title>
+	<style type="text/css">
+	#myimage{
+	position:relative;
+		}
+</style>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript">
+		//alert	('Hi');		
+		$(document).ready(function(){
+				//alert('Ready hi')
+				$("h1.blue").click(function(){
+					alert('Clicked!');
+					$(this).hide();
+				})
+								$("#myh1").click(function(){
+									alert('My h1 clicked!');
+								})
+              $("#btnhide").click(function(){
+              	$("#myimage").hide('slow',function(){
+              	alert('hide ok!');
+              });
+              })
+              $("#btnshow").click(function(){
+              	$("#myimage").show('fast',function(){
+              		alert('Show ok!');
+              	});
+              })
+              $("#btntoggle").click(function(){
+                   $("#myimage").toggle('slow',function(){
+                   	alert("Toggle ok!");
+                   })
+              })
+              $("#btnfadeout").click(function(){
+              	$('#myimage').fadeOut(2000);
+
+              })
+              $("#btnfadein").click(function(){
+              	$('#myimage').fadeIn(2000);
+
+              })
+              $("#btnfadetoggle").click(function(){
+              	$('#myimage').fadeToggle(2000);
+
+              })
+              $("#btnfadeto").click(function(){
+              $('#myimage').fadeTo(2000,0.3);
+
+              })
+              $("#btnslideup").click(function(){
+              	$('#myimage').slideUp(2000);
+              })
+              $("#btnslidedown").click(function(){
+              	$('#myimage').slideDown(2000);
+              })
+
+               $("#btnslidetoggle").click(function(){
+              	$('#myimage').slideToggle(2000);
+              })
+              $("#btnanimate").click(function(){
+              	$('#myimage').animate({left:'250px'},1000);
+              	$('#myimage').animate({top:'300px'},1000);
+              	$('#myimage').animate({right:'0px'},1000);
+              	$('#myimage').animate({top:'0px'},1000);
+              	
+              	
+
+              })
+              $("#btnstop").click(function(){
+              	$("#myimage").Stop();
+              })
+           });
+		</script>
+</head>
+<body>
+<h1 id="myh1">New Hello</h1>
+<p class="blue"> New paragraph</p>
+<img src="f5.jfif" id="myimage" width="300" height="300" border="1"><br>
+<button id="btnhide">Hide</button>
+<button id="btnshow">Show</button>
+<button id="btntoggle">Toggle</button>
+<button id="btnfadetoggle">Fade Toggle</button>
+<button id="btnfadeout">Fadeout</button>
+<button id="btnfadeout">Fadein</button>
+<button id="btnslideup">Slid up</button>
+<button id="btnslidedown">Slide down</button>
+<button id="btnslidetoggle">Slide Toggle</button>
+<button id="btnanimate">Animate</button>
+<button id="btnstops">Stop</button>
+
+
+</body>
+</html>

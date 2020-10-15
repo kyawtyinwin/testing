@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQContent</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("button").click(function(){
+				let name=$("#name").val();
+				$("h4").html('Welcome'+name);
+				alert($("h1").html());
+				let myh1=$("h1").text();
+				$("p").html(myh1);
+				$("#name").val(myh1);
+				let src=$("myimage").attr('src');
+				alert(src);
+				$("myimage").attr('src','f5.jfif');
+				$("h1").append('Append Text');
+				$("h1").prepend('Prepend Text');
+				$("h1").before('Before Text');
+				$("h1").after('After Text');
+					
+				
+				
+			})
+		})
+		
+	</script>
+</head>
+<body>
+	Enter your name:<input type="text" id="name">
+	<h1>JQuery DOM<i>DOM</i></h1>
+	<p>JQ is funny</p>
+	<h4></h4>
+	<img src="a1.jfif" id="myimage" width="300" width="300">
+	<button>Click me</button>
+
+</body>
+</html>

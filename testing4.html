@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test App</title>
+</head>
+<body>
+
+	<div id="wrap">  
+		<h1>Task List <span>0</span></h1>
+
+		  <ul id="tasks"></ul>  
+		  <ul id="done"></ul> 
+
+		  <div id="new-task">   
+		   <input type="text"><button>+</button> 
+		  </div> 
+
+	</div>
+
+	<style type="text/css">
+		
+
+		#wrap {  width: 360px; 
+		 margin: 20px auto; 
+		  padding: 20px; 
+		   border: 6px solid #DDD; 
+		    overflow: hidden;
+		     }
+		 h1 {  margin: 0 0 20px 0; 
+		  padding: 0 0 5px 0; 
+		   font-size: 18px; 
+		    border-bottom: 1px solid #DDD; 
+		}
+		  h1 span {  float: right;
+		    display: block;
+		      background: #9cf; 
+		       font-size: 12px;
+		         padding: 2px 6px; 
+		          color: #FFF;
+		           }
+		   ul {  list-style: none;
+		     margin: 0; 
+		     padding: 0; 
+		 } 
+		   ul li {  overflow: hidden; 
+		    padding: 4px 0;
+		     } 
+		   li input, li span {  float: left;
+		     margin-right: 6px;
+		 }
+
+		 li a {  float: right; 
+		  text-decoration: none;
+		    font-weight: bold;  
+		    color: #900; 
+		     padding: 0 8px; 
+		      display: none 
+		      } 
+		      li:hover a {
+		        display: inline;
+		         }
+		          #new-task { 
+		          margin-top: 20px; 
+		           padding-top: 10px; 
+		            border-top: 1px solid #efefef;
+		              overflow: hidden; 
+		              } 
+		              #new-task input { 
+		               border: 1px solid #DDD;
+		                 border-right: 0 none;
+		                 padding: 2px;  width: 240px;
+		                   height: 20px;  float: left;
+		                    } 
+		                    #new-task button { 
+		                     width: 30px;  border: 1px solid #DDD;
+		                       background: #eee;  font-weight: bold; 
+		                        color: #666;  padding: 2px 2px 3px 2px;
+		                          float: left;
+		                           } 
+		                           #done { 
+		                            line-height: 18px;
+		                              margin-bottom: 10px;
+		                               }
+		                                #done span {
+		                                  text-decoration: line-through; 
+		                                   font-size: 12px;
+		                                   color: #999;
+		                                    }
+
+	</style>
+
+	<script src="jquery.min.js"></script>
+
+	<script>
+
+	$(document).ready(function() {
+
+		 $("#new-task button").click(function() { 
+
+		   var task = $("#new-task input").val(); 
+		      if(!task) return false; 
+
+		      buildTask(task).appendTo("#tasks");
+
+		      $("h1 span").html( $("#tasks li").length ); 
+
+		      $("#new-task input").val("").focus();  
+		  }); 
+
+		  $("#new-task input").keydown(function(e) { 
+		           if(e.which == 13)    
+		           $("#new-task button").click(); 
+		  }); 
+	});
+
+	function buildTask(msg) { 
+
+		var checkbox = $("<input>", {   
+	 	type: "checkbox" 
+	  	}).click(function() { 
+
+	   if($(this).is(":checked")) {  
+	   $(this).parent().prependTo("#done"); 
+	   } else {    
+	   $(this).parent().appendTo("#tasks"); 
+	   } 
+
+	   $("h1 span").html( $("#tasks li").length );
+	   }); 
+                
+		var task = $("<span>").html(msg); 
+
+		var del = $("<a>", {  
+        href: "#" 
+        }).html("&times;").click(function() {  
+        $(this).parent().remove(); 
+
+        $("h1 span").html( $("#tasks li").length );
+
+        });  
+
+    	return $("<li>").append(checkbox).append(task).append(del);
+	} 
+
+	</script>
+
+
+</body>
+</html>

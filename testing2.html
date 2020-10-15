@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Click Event</title>
+</head>
+<body>
+
+	<script src="jquery.min.js"></script>
+
+	<div id="note">Hello World!</div>
+	<button>Toggle</button>
+	<script>
+
+		$("#note").css({
+			"color":"blue",
+			//"background-color":"pink",
+			"padding":"10px"
+		});
+
+		/*$("button").click(function(){
+
+			$("#note").slideToggle("slow");
+
+
+		});*/
+
+		$("button").on("click",function(){
+
+			$("#note").slideToggle("slow");
+		});
+
+	</script>
+
+</body>
+</html>
